@@ -1,3 +1,7 @@
-import fastify from 'fastify';
+import fastify from 'fastify'
 
-export const app = fastify();
+import { appRoutes } from './http/routes'
+
+export const app = fastify()
+
+app.register(appRoutes)
