@@ -5,7 +5,8 @@ import { AuthenticateUseCase } from '../authenticate'
 export class AuthenticateUseCaseFactory {
   static makeAuthenticateUseCase() {
     const usersRepository = new PrismaUsersRepository()
-    const authenticateUseCase = new AuthenticateUseCase(usersRepository)
-    return authenticateUseCase
+    const useCase = new AuthenticateUseCase(usersRepository)
+
+    return useCase
   }
 }
