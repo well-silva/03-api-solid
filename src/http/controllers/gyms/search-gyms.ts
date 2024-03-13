@@ -10,7 +10,7 @@ export class SearchGymsController {
       page: z.coerce.number().min(1).default(1),
     })
 
-    const { query, page } = searchGymQuerySchema.parse(request.body)
+    const { query, page } = searchGymQuerySchema.parse(request.query)
     const searchGymsUseCase = SearchGymsUseCaseFactory.makeSearchGymsUseCase()
 
     const { gyms } = await searchGymsUseCase.execute({
