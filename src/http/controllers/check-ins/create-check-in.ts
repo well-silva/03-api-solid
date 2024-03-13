@@ -8,6 +8,7 @@ export class CreateCheckInController {
     const createCheckInParamsSchema = z.object({
       gymId: z.string().uuid(),
     })
+
     const createCheckInBodySchema = z.object({
       latitude: z.number().refine((value) => {
         return Math.abs(value) <= 90
@@ -23,13 +24,13 @@ export class CreateCheckInController {
 
     const checkInsUseCase = CheckInUseCaseFactory.makeCheckInsUseCase()
 
-    const { checkIn } = await checkInsUseCase.execute({
+    await checkInsUseCase.execute({
       userId: request.user.sub,
       gymId,
       userLatitude: latitude,
       userLongitude: longitude,
     })
 
-    return reply.status(200).send({ checkIn })
+    return reply.status(201).send()
   }
 }

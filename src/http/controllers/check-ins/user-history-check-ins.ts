@@ -9,7 +9,7 @@ export class UserHistoryCheckInsController {
       page: z.coerce.number().default(1),
     })
 
-    const { page } = checkInHistoryQuerySchema.parse(request.body)
+    const { page } = checkInHistoryQuerySchema.parse(request.query)
     const fetchUserCheckInsHistoryUseCaseFactory =
       FetchUserCheckInsHistoryUseCaseFactory.makeFetchUserCheckInsHistoryUseCase()
 
