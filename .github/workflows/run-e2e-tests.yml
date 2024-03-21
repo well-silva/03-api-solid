@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm test:e2e
+      - run: npm run test:e2e
         env:
           JWT_SECRET: test
           DATABASE_URL: "postgresql://docker:docker@localhost:5432/api-solid-db?schema=public"
