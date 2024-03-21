@@ -14,7 +14,7 @@ describe('Nearby Gym (e2e)', () => {
   })
 
   it('should be able to nearby gyms', async () => {
-    const { token } = await UtilsTest.createAndAuthenticateUser(app)
+    const { token } = await UtilsTest.createAndAuthenticateUser(app, true)
 
     await request(app.server)
       .post('/gyms')
